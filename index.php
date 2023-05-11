@@ -1,5 +1,6 @@
 <?php
 session_start();
+
 /**
 * Framework simples MVC
 * Autor:Alan Klinger 05/06/2017
