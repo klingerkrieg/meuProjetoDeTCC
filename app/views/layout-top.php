@@ -25,6 +25,9 @@
         <li class="nav-item">
           <a class="nav-link" href="<?=route('usuarios')?>">Usuários</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="<?=route('veiculos')?>">Veículos</a>
+        </li>
       </ul>
     </div>
   </div>
