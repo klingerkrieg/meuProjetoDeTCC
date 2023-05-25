@@ -1,5 +1,6 @@
 <?php
 use models\Veiculo;
+use models\Modelo;
 
 class VeiculosController {
 
@@ -22,6 +23,10 @@ class VeiculosController {
 
 		#busca todos os registros
 		$send['lista'] = $model->all();
+
+        #recupera a lista com todos os modelos
+        $modelosModel = new Modelo();
+        $send['modelos'] = $modelosModel->all();
 
 		#$send['tipos'] = [0=>"Escolha uma opção", 1=>"Usuário comum", 2=>"Admin"];
 

@@ -9,10 +9,18 @@
     <input type="text" class="form-control" name="placa" value="<?=_v($data,"placa")?>" >
 </label>
 
-<label class='col-md-2'>
+<label class='col-md-6'>
     Modelo
-    <input type="text" class="form-control" name="modelo" value="<?=_v($data,"modelo")?>" >
+    <select name="modelo_id" class="form-control">
+        <?php
+        foreach($modelos as $modelo){
+            _v($data,"modelo_id") == $modelo['id'] ? $selected='selected' : $selected='';
+            print "<option value='{$modelo['id']}' $selected>{$modelo['modelo']}</option>";
+        }
+        ?>
+    </select>
 </label>
+
 
 <label class='col-md-2'>
     Cor
