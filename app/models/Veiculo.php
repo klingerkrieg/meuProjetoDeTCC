@@ -41,6 +41,29 @@ class Veiculo extends Model {
     }
 
 
+    public function getMotoristas($idVeiculo){
+        $sql = "SELECT * FROM usuarios
+            INNER JOIN motoristas ON
+                usuarios.id = motoristas.usuario_id
+            WHERE motoristas.veiculo_id = :idVeiculo ";
+
+        $stmt = $this->pdo->prepare($sql);
+        if ($stmt == false){
+            $this->showError($sql);
+        }
+        $stmt->execute([':idVeiculo' => $idVeiculo]);
+
+        $list = [];
+        while ($row = $stmt->fetch(\PDO::FETCH_ASSOC)) {
+            array_push($list,$row);
+        }
+
+        return $list;
+    }
+
+
+
+
     
 }
 

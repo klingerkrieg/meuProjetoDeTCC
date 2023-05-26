@@ -1,7 +1,6 @@
 <?php include 'layout-top.php' ?>
 
 
-
 <form method='POST' action='<?=route('veiculos/salvar/'._v($data,"id"))?>'>
 
 <label class='col-md-6'>
@@ -31,6 +30,37 @@
     Ano
     <input type="text" class="form-control" name="ano" value="<?=_v($data,"ano")?>" >
 </label>
+
+
+<label class='col-md-6'>
+    Motoristas
+    <select name="motorista_id" class="form-control">
+        <option></option>
+        <?php
+        foreach($usuarios as $usu){
+            print "<option value='{$usu['id']}'>{$usu['nome']}</option>";
+        }
+        ?>
+    </select>  
+</label>
+
+<?php if (_v($data,'id')) : ?>
+    <table class='table'>
+        <tr>
+            <th>Nome</th>
+            <th>Deletar</th>
+        </tr>
+        <?php foreach($motoristas as $item): ?>
+            <tr>
+                <td><?=$item['nome']?></td>
+                <td>
+                    <a href='<?=route("veiculos/deletarMotorista/{$item['id']}")?>'>Deletar</a>
+                </td>
+            </tr>
+        <?php endforeach; ?>
+    </table>    
+<?php endif; ?>
+
 
 
 <!-- <label class='col-md-6'>

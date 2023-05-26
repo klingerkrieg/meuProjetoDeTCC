@@ -40,3 +40,18 @@ CREATE TABLE IF NOT EXISTS veiculos (
     FOREIGN KEY (modelo_id)
        REFERENCES modelos (id)
 );
+
+/** essa tabela deve ser criada depois de veiculos e usuarios,
+exemplo de relacionamento MUITOS para MUITOS USUARIOS x VEICULOS */
+
+DROP TABLE IF EXISTS motoristas;
+CREATE TABLE IF NOT EXISTS motoristas (
+    id      INTEGER PRIMARY KEY,
+    usuario_id      TEXT    NOT NULL,
+    veiculo_id      TEXT    NOT NULL,
+    /* definicao de chave estrangeira */
+    FOREIGN KEY (usuario_id)
+       REFERENCES usuarios (id),
+    FOREIGN KEY (veiculo_id)
+       REFERENCES veiculos (id)
+);
