@@ -20,6 +20,13 @@
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
+
+    <?php
+    #só exibirá o menu caso esteja logado
+    if (isset($_SESSION['user'])):
+    ?>
+
+
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
@@ -28,8 +35,14 @@
         <li class="nav-item">
           <a class="nav-link" href="<?=route('veiculos')?>">Veículos</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="<?=route('autenticacao/logout')?>">Logout</a>
+        </li>
       </ul>
     </div>
+
+    <?php endif; ?>
+
   </div>
 </nav>
 

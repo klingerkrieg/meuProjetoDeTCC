@@ -11,6 +11,25 @@ use models\Usuario;
 #e precisa terminar com a palavra Controller
 class UsuariosController {
 
+	#construtor, é iniciado sempre que a classe é chamada
+	function __construct() {
+		#se nao existir é porque nao está logado
+		if (!isset($_SESSION["user"])){
+			redirect("autenticacao");
+			die();
+		}
+
+
+		#proibe o usuário de entrar caso não tenha autorização
+		if ($_SESSION['user']['tipo'] < Usuario::ADMIN_USER){
+			header("HTTP/1.1 401 Unauthorized");
+			die();
+		}
+
+
+	}
+
+
 	/**
 	* Para acessar http://localhost/NOMEDOPROJETO/usuarios/index
 	**/
@@ -33,7 +52,8 @@ class UsuariosController {
 		#busca todos os registros
 		$send['lista'] = $model->all();
 
-		$send['tipos'] = [0=>"Escolha uma opção", 1=>"Usuário comum", 2=>"Admin"];
+		#$send['tipos'] = [0=>"Escolha uma opção", 1=>"Usuário comum", 2=>"Admin"];
+		$send['tipos'] = Usuario::$userTypes;
 
 		#chama a view
 		render("usuarios", $send);

@@ -5,12 +5,14 @@ CREATE TABLE IF NOT EXISTS usuarios (
     nome            TEXT    NOT NULL,
     dataNascimento  TEXT,
     tipo            INTEGER,
-    ativado         INTEGER
+    ativado         INTEGER,
+    email           TEXT,
+    senha           TEXT
 );
 
-INSERT INTO usuarios (id, nome, dataNascimento, tipo, ativado) values (1,'teste 1','01-01-2000',1,1);
-INSERT INTO usuarios (id, nome, dataNascimento, tipo, ativado) values (2,'teste 2','01-01-2001',1,1);
-INSERT INTO usuarios (id, nome, dataNascimento, tipo, ativado) values (3,'teste 3','01-01-2003',1,1);
+INSERT INTO usuarios (id, nome, dataNascimento, tipo, ativado) values (1,'teste 1','01-01-2000',10,1);
+INSERT INTO usuarios (id, nome, dataNascimento, tipo, ativado) values (2,'teste 2','01-01-2001',10,1);
+INSERT INTO usuarios (id, nome, dataNascimento, tipo, ativado) values (3,'teste 3','01-01-2003',10,1);
 
 
 /** essa tabela deve ser criada antes de veiculos,

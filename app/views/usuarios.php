@@ -1,13 +1,23 @@
 <?php include 'layout-top.php' ?>
 
 
-
 <form method='POST' action='<?=route('usuarios/salvar/'._v($data,"id"))?>'>
 
 <label class='col-md-6'>
     Nome
     <input type="text" class="form-control" name="nome" value="<?=_v($data,"nome")?>" >
 </label>
+
+<label class='col-md-6'>
+    E-mail
+    <input type="email" class="form-control" name="email" value="<?=_v($data,"email")?>" >
+</label>
+
+<label class='col-md-6'>
+    Senha
+    <input type="password" class="form-control" name="senha" value="" >
+</label>
+
 
 <label class='col-md-2'>
     Data de nascimento
