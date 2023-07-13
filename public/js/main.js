@@ -1,11 +1,5 @@
-$(function(){
-
-    $('.date').mask('00/00/0000');
-
-});
-
+//Espera a pagina ser carregada
 window.addEventListener("load", (event) => {
-    
     //aplicando mascara em um elemento
     element = document.querySelector('#cpf');
     maskOptions = {mask: '000.000.000-00'};
@@ -17,6 +11,4 @@ window.addEventListener("load", (event) => {
     for(var i = 0; i < elements.length; i++){
         IMask(elements[i], maskOptions);
     }
-
 });
-
