@@ -1,6 +1,6 @@
 <?php
 #primeiro controller a ser chamado por padrao
-$index = "Principal";
+$index = "Autenticacao";
 
 $host = "app/database/database.sqlite";
 #$host = "localhost";
@@ -8,5 +8,5 @@ $host = "app/database/database.sqlite";
 #$user = "root";
 #$pass = "";
 
-
+#$pdo = new PDO("mysql:host=$host;dbname=$dbname", $user, $pass);
 $pdo = new \PDO("sqlite:" . $host);

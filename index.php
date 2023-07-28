@@ -140,7 +140,7 @@ if ($parts != ""){
 if (_v($parts,0) != ""){
 	$class = ucwords(strtolower($parts[0]));
 } else {
-	$class = "Principal";
+	$class = $index;
 }
 
 include 'app/controllers/'.$class.'Controller.php';

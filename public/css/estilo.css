@@ -1,8 +1,13 @@
 body{
     padding:0px;
     margin:0px;
+    background-color: #dfdfdf;
 }
 
 label {
     display:block;
+}
+
+.page-section{
+    margin-top:40px;
 }

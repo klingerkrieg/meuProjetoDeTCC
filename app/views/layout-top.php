@@ -1,55 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MVC Simples</title>
-
-    <link rel="stylesheet" href="<?=assets('bootstrap/css/bootstrap.min.css')?>" />
-    <script src="<?=assets('bootstrap/js/bootstrap.bundle.min.js')?>" ></script>
-
-    <script src="https://unpkg.com/imask"></script>
-    <script src="<?=assets('js/main.js')?>" ></script>
-
-    <link rel="stylesheet" href="<?=assets('css/estilo.css')?>" />
-</head>
-<body>
-
-<!-- MENU -->
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="<?=route('')?>">Documentação</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <?php
-    #só exibirá o menu caso esteja logado
-    if (isset($_SESSION['user'])):
-    ?>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Freelancer - Start Bootstrap Theme</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="<?=assets('css/styles.css')?>" rel="stylesheet" />
 
 
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link" href="<?=route('usuarios')?>">Usuários</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="<?=route('veiculos')?>">Veículos</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="<?=route('autenticacao/logout')?>">Logout</a>
-        </li>
-      </ul>
-    </div>
+        <link rel="stylesheet" href="<?=assets('bootstrap/css/bootstrap.min.css')?>" />
+        <script src="<?=assets('bootstrap/js/bootstrap.bundle.min.js')?>" ></script>
 
-    <?php endif; ?>
+        <script src="https://unpkg.com/imask"></script>
+        <script src="<?=assets('js/main.js')?>" ></script>
 
-  </div>
-</nav>
+        <link rel="stylesheet" href="<?=assets('css/estilo.css')?>" />
+    </head>
+    <body id="page-top">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
+            <div class="container">
+                <a class="navbar-brand" href="#page-top">Start Bootstrap</a>
+                <button class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menu
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                <?php
+                #só exibirá o menu caso esteja logado
+                if (isset($_SESSION['user'])):
+                ?>
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="<?=route('usuarios')?>">Usuários</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="<?=route('veiculos')?>">Veículos</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="<?=route('autenticacao/logout')?>">Logout</a></li>
+                    </ul>
+                <?php endif; ?>
+                  
+                </div>
+            </div>
+        </nav>
 
-<div class="container">
+
+      <section class="page-section" id="contact">
+          <div class="container">
+
+          <div class="row justify-content-center">
+              <div class="col-lg-8 col-xl-7">
 
 
 <?php
@@ -62,3 +68,4 @@ if (getFlash("error")){
 }
 
 ?>
+
